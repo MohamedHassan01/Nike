@@ -1,106 +1,114 @@
 <template>
-  <div class="home">
-    <v-container>
-      <v-row>
-        <v-col
-          cols="12"
-          md="2"
-        >
-          <div class="left-side">
-            <div class="slider-details">
-              <div class="number">
-                <span>{{ current }}</span> /
-                {{ totalProducts }}
-              </div>
-              <div class="progress-bar">
-                <span class="bar" ref="bar"></span>
-              </div>
-            </div>
-
-            <div class="social">
-              <h4>Follow</h4>
-              <div class="social-icons">
-                <v-btn fab text small>
-                  <v-icon >mdi-facebook</v-icon>
-                </v-btn>
-                <v-btn fab text small>
-                  <v-icon>mdi-linkedin</v-icon>
-                </v-btn>
-                <v-btn fab text small>
-                  <v-icon>mdi-twitter</v-icon>
-                </v-btn>
-              </div>
-            </div>
-          </div>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <div
-            v-for="slide in products"
-            :key="slide.id"
+  <div>
+    <div class="home">
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            md="2"
+            class="d-none d-md-block"
           >
-            <div
-              class="home-content"
-              v-if="slide.isSelected"
-            >
-              <h2>{{ slide.title }}</h2>
-              <p>{{ slide.details }}</p>
-              <div class="buy">
-                <v-btn text depressed>Buy now</v-btn>
-                <span class="price">${{  slide.price }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="see-more">
-            <p>See More</p>
-            <div class="btn">
-              <v-icon large>mdi-chevron-double-down</v-icon>
-            </div>
-          </div>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="6"
-        >
-          <div class="slider">
-            <div class="circle"></div>
-            <img class="selected" ref="imageSlider" src="../assets/home/01.png" alt="">
-            <div class="delimiter">
-              <v-btn class="prev" small fab text>
-                <v-icon>mdi-arrow-left</v-icon>
-              </v-btn>
-              <div
-                class="product"
-                v-for="product in products"
-                :key="product.id"
-              >
-                <div
-                  :class="[{'active': product.isSelected},'box']"
-                  @click="selectProduct(product)"
-                >
-                  <img :class="{'selected': product.isSelected}" :src="product.img" alt="">
+            <div class="left-side">
+              <div class="slider-details">
+                <div class="number">
+                  <span>{{ current }}</span> /
+                  {{ totalProducts }}
+                </div>
+                <div class="progress-bar">
+                  <span class="bar" ref="bar"></span>
                 </div>
               </div>
-              <v-btn class="next" small fab text>
-                <v-icon>mdi-arrow-right</v-icon>
-              </v-btn>
+
+              <div class="social">
+                <h4>Follow</h4>
+                <div class="social-icons">
+                  <v-btn fab text small>
+                    <v-icon >mdi-facebook</v-icon>
+                  </v-btn>
+                  <v-btn fab text small>
+                    <v-icon>mdi-linkedin</v-icon>
+                  </v-btn>
+                  <v-btn fab text small>
+                    <v-icon>mdi-twitter</v-icon>
+                  </v-btn>
+                </div>
+              </div>
             </div>
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
+          </v-col>
+
+          <v-col
+            cols="12"
+            md="4"
+          >
+            <div
+              v-for="slide in products"
+              :key="slide.id"
+            >
+              <div
+                class="home-content"
+                v-if="slide.isSelected"
+              >
+                <h2>{{ slide.title }}</h2>
+                <p>{{ slide.details }}</p>
+                <div class="buy">
+                  <v-btn text depressed>Buy now</v-btn>
+                  <span class="price">${{  slide.price }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="see-more d-none d-md-block">
+              <p>See More</p>
+              <div class="btn" v-scroll-to="'#about'">
+                <v-icon large>mdi-chevron-double-down</v-icon>
+              </div>
+            </div>
+          </v-col>
+
+          <v-col
+            cols="12"
+            md="6"
+          >
+            <div class="slider">
+              <div class="circle"></div>
+              <img class="selected" ref="imageSlider" src="../assets/home/01.png" alt="">
+              <div class="delimiter">
+                <v-btn class="prev" small fab text>
+                  <v-icon>mdi-arrow-left</v-icon>
+                </v-btn>
+                <div
+                  class="product"
+                  v-for="product in products"
+                  :key="product.id"
+                >
+                  <div
+                    :class="[{'active': product.isSelected},'box']"
+                    @click="selectProduct(product)"
+                  >
+                    <img :class="{'selected': product.isSelected}" :src="product.img" alt="">
+                  </div>
+                </div>
+                <v-btn class="next" small fab text>
+                  <v-icon>mdi-arrow-right</v-icon>
+                </v-btn>
+              </div>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
+    <About />
   </div>
 </template>
 
 <script>
+import About from "@/components/about.vue";
+
 export default {
   name: "home",
   components: {
-    
+    About
   },
 
   data() {

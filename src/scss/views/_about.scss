@@ -1,0 +1,137 @@
+.about {
+  height: 600px;
+  background: $gray;
+  .img-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      top: 5%;
+      left: 26%;
+    }
+    .feat {
+      position: absolute;
+      top: 27%;
+      left: 55%;
+      width: 397px;
+      height: 89px;
+      .line {
+        width: 20px;
+        height: 20px;
+        border: 2px solid $darkGray;
+        border-radius: 50%;
+        transform: scale(1.2);
+        cursor: pointer;
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 89px;
+          height: 1px;
+          background-color: $darkGray;
+          transition: all 0.3s ease-in-out;
+        }
+        &::before {
+          transform: rotate(-30deg) translate(20px, -11px);
+        }
+        &::after {
+          transform: rotate(10deg) translate(87px, -50px);
+          border-radius: 0 14px 14px 0;
+        }
+
+        &.animate {
+          animation: animate 2s linear infinite;
+          &::before,
+          &::after {
+            opacity: 0;
+          }
+        }
+      }
+      .description {
+        position: absolute;
+        top: -36px;
+        left: 53%;
+        background-color: #fff;
+        padding: 10px 30px;
+        border-radius: 14px;
+        text-align: center;
+        opacity: 0 !important;
+        transition: all 0.3s ease-in-out;
+        p {
+          margin-bottom: 0;
+        }
+        &.active {
+          opacity: 1 !important;
+        }
+      }
+
+      &.two {
+        top: 38%;
+        left: 58%;
+        .line {
+          &::before {
+            transform: rotate(-154deg) translate(-25px, -22px);
+          }
+          &::after {
+            transform: rotate(-10deg) translate(87px, 59px);
+          }
+        }
+        .description {
+          top: -20px;
+        }
+      }
+
+      &.three {
+        top: 57%;
+        left: 49%;
+        .line {
+          &::before {
+            transform: rotate(-154deg) translate(-25px, -22px);
+          }
+          &::after {
+            transform: rotate(-3deg) translate(95px, 53px);
+          }
+        }
+        .description {
+          top: -5px;
+        }
+      }
+
+      &.four {
+        top: 72%;
+        left: 39%;
+        .line {
+          &::before {
+            transform: rotate(-52deg) translate(-81px, -23px);
+          }
+          &::after {
+            transform: rotate(-10deg) translate(-153px, 67px);
+          }
+        }
+        .description {
+          top: 56px;
+          left: -306px;
+        }
+      }
+
+      &.five {
+        top: 46%;
+        left: 40%; 
+        width: 50px;   
+        .line {
+          &::before {
+            transform: rotate(7deg) translate(-87px, 8px);
+          }
+          &::after {
+            transform: rotate(-18deg) translate(-167px, -49px);
+          }
+        }
+        .description {
+          top: 22px;
+          left: -365px;
+        }
+      }
+    }
+  }
+}

@@ -22,10 +22,10 @@
           <v-spacer></v-spacer>
 
           <template class="icons" v-if="$vuetify.breakpoint.mdAndUp">
-            <v-btn icon class="icon">
+            <v-btn icon class="icon d-none d-md-block">
               <v-icon>mdi-shopping</v-icon>
             </v-btn>
-            <v-btn icon class="icon">
+            <v-btn icon class="icon d-none d-md-block">
               <v-icon>mdi-search-web</v-icon>
             </v-btn>
           </template>

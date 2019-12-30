@@ -1,0 +1,22 @@
+@keyframes circle {
+  from {}
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(1.3);
+    border: 2px solid $darkGray;
+  }
+  50% {
+    transform: scale(.8);
+    opacity: 0.5;
+    border: 1.5px solid $darkGray;
+  }
+  100% {
+    transform: scale(1.3);
+    border: 2px solid $darkGray;
+  }
+}
